@@ -1,4 +1,4 @@
 /server.crt
 /server.key
 /.env
-node_modules/
+node_modules
