@@ -1,7 +1,9 @@
-const express = require("express");
-const fs = require("fs");
-const https = require("https");
-const dotenv = require("dotenv");
+
+import express from 'express'
+import fs from 'fs'
+import https from "https"
+import dotenv, { config } from "dotenv"
+import sequelize from  "./models/index.js"
 const app = express();
 dotenv.config();
 const port = process.env.PORT;
@@ -27,6 +29,7 @@ const options ={
     key:fs.readFileSync('./server.key'),
     cert: fs.readFileSync('./server.crt')
 }
+
 https.createServer(options,app).listen(port,()=>{
     console.log(`Server is listening at port ${port}`);
 })
